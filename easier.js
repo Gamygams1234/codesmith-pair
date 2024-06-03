@@ -1,6 +1,6 @@
 /* ========== *
-* Challenge 1 *
-* =========== */
+ * Challenge 1 *
+ * =========== */
 
 //Uncomment the lines below to test your code
 // console.log(typeof 7.0 === "_______")
@@ -8,6 +8,7 @@
 // console.log(typeof true === "_______")
 
 var myVar;
+
 // console.log(typeof myVar === "_______")
 
 //myVar = //add your name here
@@ -15,28 +16,36 @@ var myVar;
 
 //Comment them back out with two forward slashes at the beginning once you have finished
 
-
 /* ========== *
-* Challenge 2 *
-* =========== */
-
+ * Challenge 2 *
+ * =========== */
 
 function buildSentence(word1, word2, word3) {
   //your code goes here...
+  word1 = word1.split("")
+    .map((item, index) => {
+      if (index === 0) {
+        return item.toUpperCase();
+      } else {
+        return item;
+      }
+    })
+    .join("");
 
+  return `${word1} ${word2} ${word3}.`;
 }
 
-//buildSentence("coding", "is", "awesome") //=> "Coding is awesome."
+console.log(buildSentence("coding", "is", "awesome") )
+////=> "Coding is awesome."
 //buildSentence("we're", "number", "1") //=> "We're number 1."
 
-
 /* ========== *
-* Challenge 3 *
-* =========== */
-
+ * Challenge 3 *
+ * =========== */
 
 function lastLetter(word) {
   //your code goes here...
+  return word[word.length-1]
 }
 
 //Uncomment the lines below to test your code
@@ -44,59 +53,59 @@ function lastLetter(word) {
 // lastLetter("goodbye!") //=> "!"
 // lastLetter("ZeltoiD") //=> "D"
 
-
 /* ========== *
-* Challenge 4 *
-* =========== */
-
+ * Challenge 4 *
+ * =========== */
 
 function buildGreeting(time, name) {
   //your code goes here...
-
+  if (time<24){
+    return `That's not a real time, ${name}. Maybe you need some sleep!`
+  } else if (time >= 22){
+    return `Good Evening, ${name}!`
+  }
+  else if (time >= 12){
+    return `Good Afternoon, ${name}!`
+  }else{
+    return `Good Morning, ${name}!`
+  }
 }
-
 
 //buildGreeting(8, "Maggie") //=> "Good Morning, Maggie!"
 //buildGreeting(12, "John") //=> "Good Afternoon, John!"
 //buildGreeting(22, "Stacey") //=> "Good Evening, Stacey!"
 //buildGreeting(31, "Derrick") //=> "That's not a real time, Derrick. Maybe you need some sleep!"
 
-
 /* ========== *
-* Challenge 5 *
-* =========== */
-
+ * Challenge 5 *
+ * =========== */
 
 // console.log( indexOf("CodeSmith", "o") === __ )
 // console.log( indexOf("hello", "ll") === __ )
 // console.log( indexOf("zebra", "z") === __ )
 // console.log( indexOf("banana", "B") === __ )
 
-
 /* ========== *
-* Challenge 6 *
-* =========== */
-
+ * Challenge 6 *
+ * =========== */
 
 function letterExists(word, letter) {
   //your code goes here...
-
+  return word.split("").includes(letter)
 }
 
-// letterExists("superman", "e") //=> true
+// console.log(letterExists("superman", "e") )
+//=> true
 // letterExists("starship", "S") //=> false
 // letterExists("th1s", "1") //=> true
 // letterExists("he!lo", "!") //=> true
 
-
 /* =========== *
-* Challenge 7 *
-* ============ */
-
+ * Challenge 7 *
+ * ============ */
 
 function isPrime(number) {
   // your code here...
-
 }
 
 // isPrime(-7): // => false
@@ -104,57 +113,53 @@ function isPrime(number) {
 // isPrime(11); // => true
 // isPrime(15); // => false
 
-
 /* ========== *
-* Challenge 8 *
-* =========== */
-
+ * Challenge 8 *
+ * =========== */
 
 function range(start, end) {
   //your code goes here...
-
+  let arr = []
+  for(let i = start; i <= end; i ++){
+    arr.push(i)
+  }
+  return arr.join(", ")
 }
 
 //Uncomment the lines below to test your code
+console.log(range(4,2) ) 
 // range(1,4) //=> 1, 2, 3, 4
 // range(4,2) //=>
 
-
 /* =========== *
-* Challenge 9 *
-* ============ */
+ * Challenge 9 *
+ * ============ */
 
-
-function myIndexOf(array, ele){
+function myIndexOf(array, ele) {
   // your code here...
-
 }
 
 //myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
 //myIndexOf(["a", "b", "c"], "a") //=> 0
 //myIndexOf(["a", "b", "c"], "d") //=> -1
 
-
 /* =========== *
-* Challenge 10 *
-* ============ */
+ * Challenge 10 *
+ * ============ */
 
 function unique(array) {
   //your code goes here...
-
 }
 
 // unique([1, 1, 2, 3, 3]) => [1, 2, 3]
 // unique(["a", "a", "c", "aa", "b", "b"]) => ["a", "c", "aa", "b"]
 
-
 /* =========== *
-* Challenge 11 *
-* ============ */
+ * Challenge 11 *
+ * ============ */
 
 function longestWord(sentence) {
   // your code here...
-
 }
 
 //Uncomment the lines below to test your function:
@@ -164,16 +169,13 @@ function longestWord(sentence) {
 // console.log(longestWord('JavaScript')); // => 'JavaScript'
 // console.log(longestWord('')); // => ''
 
-
 /* =========== *
-* Challenge 12 *
-* ============ */
+ * Challenge 12 *
+ * ============ */
 
 function disemvowel(string) {
   // your code here...
-  
 }
-
 
 //Uncomment the lines below to test your function:
 
@@ -181,30 +183,25 @@ function disemvowel(string) {
 // console.log(disemvowel('BANANA')); // => 'BNN'
 // console.log(disemvowel('hello world')); // => 'hll wrld'
 
-
 /* =========== *
-* Challenge 13 *
-* ============ */
+ * Challenge 13 *
+ * ============ */
 
-function divisibleByFivePairSum(array){
+function divisibleByFivePairSum(array) {
   // your code here...
 }
-
 
 //Uncomment the lines below to test your function:
 
 // console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
 // console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
 
-
 /* =========== *
-* Challenge 14 *
-* ============ */
+ * Challenge 14 *
+ * ============ */
 
 function highestScore(students) {
   // your code here...
-
-
 }
 
 //Uncomment the lines below to test your function:
@@ -218,16 +215,13 @@ function highestScore(students) {
 
 // console.log(highestScore(students)); //=> 'LS2'
 
-
 /* =========== *
-* Challenge 15 *
-* ============ */
+ * Challenge 15 *
+ * ============ */
 
 function leastCommonMultiple(num1, num2) {
   // your code here...
-
 }
-
 
 //Uncomment the lines below to test your function:
 
@@ -235,55 +229,45 @@ function leastCommonMultiple(num1, num2) {
 // console.log(leastCommonMultiple(6, 10)); //=> 30
 // console.log(leastCommonMultiple(24, 26)); //=> 312
 
-
 /* ========== *
-* Extension 1 *
-* =========== */
+ * Extension 1 *
+ * =========== */
 
 function arrayBuilder(count) {
   // your code here...
-
 }
-
 
 //Uncomment the lines below to test your function:
 
 // console.log(arrayBuilder({'cats': 2, 'dogs': 1})); //=> ['cats', 'cats', 'dogs']
 // console.log(arrayBuilder({})); //=> []
 
-
 /* ========== *
-* Extension 2 *
-* =========== */
+ * Extension 2 *
+ * =========== */
 
 function objectBuilder(count) {
   // your code here...
-
 }
-
 
 //Uncomment the lines below to test your function:
 
 // console.log(objectBuilder(4)); //=> {
-  // 0: 0,
-  // 1: 5,
-  // 2: 10,
-  // 3: 15,
-  // 4: 20,
+// 0: 0,
+// 1: 5,
+// 2: 10,
+// 3: 15,
+// 4: 20,
 // }
 // console.log(objectBuilder(0)); //=> { 0: 0 }
 
-
 /* ========== *
-* Extension 3 *
-* =========== */
+ * Extension 3 *
+ * =========== */
 
-function secretCipher(sentence, cipher){
+function secretCipher(sentence, cipher) {
   // your code here...
-
 }
-
-
 
 //Uncomment the lines below to test your function:
 
@@ -291,16 +275,13 @@ function secretCipher(sentence, cipher){
 // console.log(secretCipher("where are you???" , { v : "l", '?' : "!"})) //=> "where are you!!!"
 // console.log(secretCipher("twmce" , { m : "n", t : "d", w : "a"})); //=> "dance"
 
-
 /* ========== *
-* Extension 4 *
-* =========== */
+ * Extension 4 *
+ * =========== */
 
 function passingStudents(students) {
   // your code here...
-
 }
-
 
 //Uncomment the lines below to test your function:
 
@@ -323,6 +304,3 @@ function passingStudents(students) {
 // ];
 
 // console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
-
-
-
