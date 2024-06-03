@@ -161,10 +161,14 @@ console.log(myIndexOf([1, 2, 3, 4, 5], 5))
 
 function unique(array) {
   //your code goes here...
+  const set = new Set(array);
+  return [...set]
+
 }
 
 // unique([1, 1, 2, 3, 3]) => [1, 2, 3]
 // unique(["a", "a", "c", "aa", "b", "b"]) => ["a", "c", "aa", "b"]
+console.log(unique(["a", "a", "c", "aa", "b", "b"]) )
 
 /* =========== *
  * Challenge 11 *
