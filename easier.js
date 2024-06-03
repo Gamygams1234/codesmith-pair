@@ -22,7 +22,8 @@ var myVar;
 
 function buildSentence(word1, word2, word3) {
   //your code goes here...
-  word1 = word1.split("")
+  word1 = word1
+    .split("")
     .map((item, index) => {
       if (index === 0) {
         return item.toUpperCase();
@@ -35,7 +36,7 @@ function buildSentence(word1, word2, word3) {
   return `${word1} ${word2} ${word3}.`;
 }
 
-console.log(buildSentence("coding", "is", "awesome") )
+console.log(buildSentence("coding", "is", "awesome"));
 ////=> "Coding is awesome."
 //buildSentence("we're", "number", "1") //=> "We're number 1."
 
@@ -45,7 +46,7 @@ console.log(buildSentence("coding", "is", "awesome") )
 
 function lastLetter(word) {
   //your code goes here...
-  return word[word.length-1]
+  return word[word.length - 1];
 }
 
 //Uncomment the lines below to test your code
@@ -59,15 +60,14 @@ function lastLetter(word) {
 
 function buildGreeting(time, name) {
   //your code goes here...
-  if (time<24){
-    return `That's not a real time, ${name}. Maybe you need some sleep!`
-  } else if (time >= 22){
-    return `Good Evening, ${name}!`
-  }
-  else if (time >= 12){
-    return `Good Afternoon, ${name}!`
-  }else{
-    return `Good Morning, ${name}!`
+  if (time < 24) {
+    return `That's not a real time, ${name}. Maybe you need some sleep!`;
+  } else if (time >= 22) {
+    return `Good Evening, ${name}!`;
+  } else if (time >= 12) {
+    return `Good Afternoon, ${name}!`;
+  } else {
+    return `Good Morning, ${name}!`;
   }
 }
 
@@ -91,7 +91,7 @@ function buildGreeting(time, name) {
 
 function letterExists(word, letter) {
   //your code goes here...
-  return word.split("").includes(letter)
+  return word.split("").includes(letter);
 }
 
 // console.log(letterExists("superman", "e") )
@@ -119,15 +119,15 @@ function isPrime(number) {
 
 function range(start, end) {
   //your code goes here...
-  let arr = []
-  for(let i = start; i <= end; i ++){
-    arr.push(i)
+  let arr = [];
+  for (let i = start; i <= end; i++) {
+    arr.push(i);
   }
-  return arr.join(", ")
+  return arr.join(", ");
 }
 
 //Uncomment the lines below to test your code
-console.log(range(4,2) ) 
+console.log(range(4, 2));
 // range(1,4) //=> 1, 2, 3, 4
 // range(4,2) //=>
 
@@ -137,8 +137,20 @@ console.log(range(4,2) )
 
 function myIndexOf(array, ele) {
   // your code here...
+
+  let ans; 
+  if (!array.includes(ele)) {
+    return -1;
+  }
+  array.forEach((item, index) => {
+    if (item === ele) {
+      ans =  index;
+    }
+  });
+  return ans
 }
 
+console.log(myIndexOf([1, 2, 3, 4, 5], 5))
 //myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
 //myIndexOf(["a", "b", "c"], "a") //=> 0
 //myIndexOf(["a", "b", "c"], "d") //=> -1
