@@ -4,32 +4,53 @@ console.log('Hello, world!');
 
 // Challenge 1
 function countdown(n) {
+    if (n<1){
+        console.log("Done!")
+        return 
+    }
+    console.log(n)
+    return countdown(n-1)
 
 }
 
 // To check if you've completed it, uncomment these console.logs!
-// countdown(5);
+countdown(5)
+;
 // countdown(10);
 
 
 // Challenge 2
 function sum(array) {
+    if (array.length === 0){
+        return 0
+    }
+
+return array[0]+ sum(array.slice(1))
 
 }
 
 // uncomment these to check your work
-//  console.log(sum([1,1,1])); // -> returns 3
-//  console.log(sum([1,2,3,4,5,6])); // -> returns 21
+ console.log(sum([1,1,1])); // -> returns 3
+ console.log(sum([1,2,3,4,5,6])); // -> returns 21
 
 
 // Challenge 3
 function palindrome(string) {
+    let s =string.split(" ").join("").split("-").join("").split(",").join("").toLowerCase()
+    if(s.length <=1){
+        return true;
+    }
+    if(s[0]!== s[s.length-1]){
+        return false
+    }
+    return palindrome(s.slice(1,-1))
+
 
 }
 
-// console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
-// console.log(palindrome("llama mall")); //-> true
-// console.log(palindrome("jmoney")); //-> false
+console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
+console.log(palindrome("llama mall")); //-> true
+console.log(palindrome("jmoney")); //-> false
 
 
 // Challenge 4

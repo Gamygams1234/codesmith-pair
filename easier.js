@@ -217,19 +217,25 @@ function divisibleByFivePairSum(array) {
  * ============ */
 
 function highestScore(students) {
-  // your code here...
+  // your code here..
+//   sort by a score
+// take the end 
+
+return students.sort((a, b)=>{
+    return a.score - b.score
+})[students.length -1]
 }
 
 //Uncomment the lines below to test your function:
 
-// var students = [
-// {name: 'Will Sentance', id: 128, score: -42},
-// {name: 'Jamie Bradshaw', id: 32, score: 57},
-// {name: 'Lisa Simpson', id: 2, score: 99},
-// {name: 'Luke Skywalker', id: 256, score: 94}
-// ];
+var students = [
+{name: 'Will Sentance', id: 128, score: -42},
+{name: 'Jamie Bradshaw', id: 32, score: 57},
+{name: 'Lisa Simpson', id: 2, score: 99},
+{name: 'Luke Skywalker', id: 256, score: 94}
+];
 
-// console.log(highestScore(students)); //=> 'LS2'
+console.log(highestScore(students)); //=> 'LS2'
 
 /* =========== *
  * Challenge 15 *
@@ -251,12 +257,20 @@ function leastCommonMultiple(num1, num2) {
 
 function arrayBuilder(count) {
   // your code here...
+  let ans = []
+
+ Object.entries(count).forEach(item=>{
+    for (let i  = 0; i < item[1]; i++){
+        ans.push(item[0])
+    }
+ })
+return ans
 }
 
 //Uncomment the lines below to test your function:
 
-// console.log(arrayBuilder({'cats': 2, 'dogs': 1})); //=> ['cats', 'cats', 'dogs']
-// console.log(arrayBuilder({})); //=> []
+console.log(arrayBuilder({'cats': 2, 'dogs': 1})); //=> ['cats', 'cats', 'dogs']
+console.log(arrayBuilder({})); //=> []
 
 /* ========== *
  * Extension 2 *
@@ -264,6 +278,7 @@ function arrayBuilder(count) {
 
 function objectBuilder(count) {
   // your code here...
+
 }
 
 //Uncomment the lines below to test your function:
