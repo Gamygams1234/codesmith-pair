@@ -106,10 +106,20 @@ function letterExists(word, letter) {
 
 function isPrime(number) {
   // your code here...
+  if (number <= 1 ){
+    return false
+  }
+  for (let i = 2; i<= Math.sqrt(number); i++){
+    if (number % i === 0){
+      return false
+    }
+  }
+  return true
 
 }
-
-// isPrime(-7): // => false
+console.log("Is Prime")
+console.log(isPrime(3) )
+// => false
 // isPrime(2); // => true
 // isPrime(11); // => true
 // isPrime(15); // => false
@@ -202,12 +212,14 @@ console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
 
 function disemvowel(string) {
   // your code here...
+  return string.replace(/[aeiouAEIOU]/g, "");
+
 }
 
 //Uncomment the lines below to test your function:
 
-// console.log(disemvowel('CodeSmith')); // => 'CdSmth'
-// console.log(disemvowel('BANANA')); // => 'BNN'
+console.log(disemvowel('CodeSmith')); // => 'CdSmth'
+console.log(disemvowel('BANANA')); // => 'BNN'
 // console.log(disemvowel('hello world')); // => 'hll wrld'
 
 /* =========== *
@@ -216,12 +228,24 @@ function disemvowel(string) {
 
 function divisibleByFivePairSum(array) {
   // your code here...
+  let arr = [];
+   for (let i = 0 ; i< array.length; i++){
+    for (let j = i +1; j <array.length ; j++){
+      if (i!== j){
+        if ((array[i] + array[j])%5 ===0){
+          arr = [...arr, [i, j]]
+        }
+      }
+    }
+   }
+
+   return arr; 
 }
 
 //Uncomment the lines below to test your function:
 
-// console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
-// console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
+console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
+console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
 
 /* =========== *
  * Challenge 14 *
@@ -309,11 +333,19 @@ function objectBuilder(count) {
 
 function secretCipher(sentence, cipher) {
   // your code here...
+  return sentence.split("").map(item=>{
+
+    if (Object.keys(cipher).includes(item)){
+      return cipher[item]
+    }else{
+      return item
+    }
+  }).join("")
 }
 
 //Uncomment the lines below to test your function:
 
-// console.log(secretCipher("lqq me on flcebzzk" , { l : "a", q : "d", z: "o"})); //=> "add me on facebook"
+console.log(secretCipher("lqq me on flcebzzk" , { l : "a", q : "d", z: "o"})); //=> "add me on facebook"
 // console.log(secretCipher("where are you???" , { v : "l", '?' : "!"})) //=> "where are you!!!"
 // console.log(secretCipher("twmce" , { m : "n", t : "d", w : "a"})); //=> "dance"
 
@@ -323,26 +355,40 @@ function secretCipher(sentence, cipher) {
 
 function passingStudents(students) {
   // your code here...
+
+  let passingStudents = students.filter((student)=>{
+
+    // find the passing grade
+    return student.grades.map((grade)=>{
+      console.log(grade.score)
+      return grade.score
+    }).reduce((acc,curr)=>{
+      return acc + curr
+    }, 0) / student.grades.length >= 70
+  })
+  return passingStudents.map(item=>{
+    return item.name
+  })
 }
 
 //Uncomment the lines below to test your function:
 
-// var students = [
-//   {
-//     "name": "Marco",
-//     "id": 12345,
-//     "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 75}, {"id": 2, "score": 85}]
-//   },
-//   {
-//     "name": "Donna",
-//     "id": 55555,
-//     "grades": [{"id": 0, "score": 100}, {"id": 1, "score": 100}, {"id": 2, "score": 100}]
-//   },
-//   {
-//     "name": "Jukay",
-//     "id": 94110,
-//     "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 60}, {"id": 2, "score": 65}]
-//   }
-// ];
+var students = [
+  {
+    "name": "Marco",
+    "id": 12345,
+    "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 75}, {"id": 2, "score": 85}]
+  },
+  {
+    "name": "Donna",
+    "id": 55555,
+    "grades": [{"id": 0, "score": 100}, {"id": 1, "score": 100}, {"id": 2, "score": 100}]
+  },
+  {
+    "name": "Jukay",
+    "id": 94110,
+    "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 60}, {"id": 2, "score": 65}]
+  }
+];
 
-// console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
+console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
