@@ -106,6 +106,7 @@ function letterExists(word, letter) {
 
 function isPrime(number) {
   // your code here...
+
 }
 
 // isPrime(-7): // => false
@@ -176,11 +177,21 @@ console.log(unique(["a", "a", "c", "aa", "b", "b"]) )
 
 function longestWord(sentence) {
   // your code here...
+ let longestWord = "";
+ sentence.split(" ").forEach(item=>{
+  if (longestWord.length < item.length){
+    longestWord = item
+  }
+ })
+  
+ return longestWord
+
 }
 
 //Uncomment the lines below to test your function:
 
-// console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
+
+console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
 // console.log(longestWord('hate having hungry hippos')); // => 'hippos'
 // console.log(longestWord('JavaScript')); // => 'JavaScript'
 // console.log(longestWord('')); // => ''
